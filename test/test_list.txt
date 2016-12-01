@@ -7,4 +7,3 @@ Scan product test list
     - Barcode with spaces?
 
 To do
-- Rename test package

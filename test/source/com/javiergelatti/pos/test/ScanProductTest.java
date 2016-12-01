@@ -1,4 +1,4 @@
-package com.javiergelatti.test;
+package com.javiergelatti.pos.test;
 
 import com.javiergelatti.pos.PointOfSale;
 import org.junit.Test;
