@@ -7,11 +7,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ScanProductTest {
+public class ScanProductTest implements Display {
 
     private final ItemCatalog catalog = new ItemCatalog();
-    private final Display display = null;
+    private final Display display = this;
     private final PointOfSale pointOfSale = new PointOfSale(catalog, display);
+
+    private String lastTextShown;
 
     @Test
     public void itemNotFound() throws Exception {
@@ -40,6 +42,11 @@ public class ScanProductTest {
     }
 
     private String shownText() {
-        return pointOfSale.lastTextShown();
+        return lastTextShown;
+    }
+
+    @Override
+    public void showText(String text) {
+        lastTextShown = text;
     }
 }
