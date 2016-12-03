@@ -33,12 +33,12 @@ public class ScanProductTest implements Display {
 
     @Test
     public void manyItems() throws Exception {
-        catalog.addItem("123", 11.50);
         catalog.addItem("124", 25.30);
+        catalog.addItem("123", 11.50);
 
-        pointOfSale.onBarcode("123");
+        pointOfSale.onBarcode("124");
 
-        assertEquals("$ 11.50", lastTextShown);
+        assertEquals("$ 25.30", lastTextShown);
     }
 
     @Override
