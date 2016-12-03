@@ -1,7 +1,7 @@
 Scan product test list
 - Barcode OK
     * Product/Item found -> show price
-    * Item not found -> show error?
+    - Item not found -> show error with barcode
 - Barcode not OK
     - Empty barcode?
     - Barcode with spaces?
