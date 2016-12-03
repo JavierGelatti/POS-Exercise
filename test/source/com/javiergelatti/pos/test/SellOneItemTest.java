@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ScanProductTest implements Display {
+public class SellOneItemTest implements Display {
 
     private final ItemCatalog catalog = new ItemCatalog();
     private final Display display = this;
