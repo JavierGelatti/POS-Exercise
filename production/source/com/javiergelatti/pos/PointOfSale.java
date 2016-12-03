@@ -6,7 +6,6 @@ public class PointOfSale {
 
     private ItemCatalog catalog;
     private Display display;
-    private String lastTextShown;
 
     public PointOfSale(ItemCatalog catalog, Display display) {
         this.catalog = catalog;
@@ -14,14 +13,9 @@ public class PointOfSale {
     }
 
     public void onBarcode(String barcode) {
-        lastTextShown = catalog.getItemPriceFor(barcode)
+        display.showText(catalog.getItemPriceFor(barcode)
                 .map(price -> String.format(Locale.US, "$ %.2f", price))
-                .orElse("Item not found");
-
-        display.showText(lastTextShown);
+                .orElse("Item not found"));
     }
 
-    public String lastTextShown() {
-        return lastTextShown;
-    }
 }
