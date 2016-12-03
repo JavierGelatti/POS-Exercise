@@ -17,9 +17,9 @@ public class ScanProductTest implements Display {
 
     @Test
     public void itemNotFound() throws Exception {
-        pointOfSale.onBarcode("Not found");
+        pointOfSale.onBarcode("123");
 
-        assertEquals("Item not found", lastTextShown);
+        assertEquals("Item not found for code 123", lastTextShown);
     }
 
     @Test
