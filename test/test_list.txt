@@ -1,6 +1,6 @@
 Scan product test list
 - Barcode OK
-    - Product/Item found -> show price
+    * Product/Item found -> show price
     * Item not found -> show error?
 - Barcode not OK
     - Empty barcode?
