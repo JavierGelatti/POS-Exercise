@@ -17,8 +17,7 @@ public class ScanProductTest {
     public void itemNotFound() throws Exception {
         pointOfSale.onBarcode("Not found");
 
-        String shownText = pointOfSale.lastTextShown();
-        assertEquals("Item not found", shownText);
+        assertEquals("Item not found", shownText());
     }
 
     @Test
@@ -27,8 +26,7 @@ public class ScanProductTest {
 
         pointOfSale.onBarcode("123");
 
-        String shownText = pointOfSale.lastTextShown();
-        assertEquals("$ 11.50", shownText);
+        assertEquals("$ 11.50", shownText());
     }
 
     @Test
@@ -38,7 +36,10 @@ public class ScanProductTest {
 
         pointOfSale.onBarcode("123");
 
-        String shownText = pointOfSale.lastTextShown();
-        assertEquals("$ 11.50", shownText);
+        assertEquals("$ 11.50", shownText());
+    }
+
+    private String shownText() {
+        return pointOfSale.lastTextShown();
     }
 }
