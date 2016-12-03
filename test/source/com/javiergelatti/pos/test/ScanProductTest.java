@@ -7,10 +7,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class ScanProductTest {
+
+    private final ItemCatalog catalog = new ItemCatalog();
+    private final PointOfSale pointOfSale = new PointOfSale(catalog);
+
     @Test
     public void itemNotFound() throws Exception {
-        PointOfSale pointOfSale = new PointOfSale(new ItemCatalog());
-
         pointOfSale.onBarcode("Not found");
 
         String shownText = pointOfSale.lastTextShown();
@@ -19,9 +21,7 @@ public class ScanProductTest {
 
     @Test
     public void itemFound() throws Exception {
-        ItemCatalog catalog = new ItemCatalog();
         catalog.addItem("123", 11.50);
-        PointOfSale pointOfSale = new PointOfSale(catalog);
 
         pointOfSale.onBarcode("123");
 
@@ -31,10 +31,8 @@ public class ScanProductTest {
 
     @Test
     public void manyItems() throws Exception {
-        ItemCatalog catalog = new ItemCatalog();
         catalog.addItem("123", 11.50);
         catalog.addItem("124", 25.30);
-        PointOfSale pointOfSale = new PointOfSale(catalog);
 
         pointOfSale.onBarcode("123");
 
