@@ -28,4 +28,17 @@ public class ScanProductTest {
         String shownText = pointOfSale.lastTextShown();
         assertEquals("$ 11.50", shownText);
     }
+
+    @Test
+    public void manyItems() throws Exception {
+        ItemCatalog catalog = new ItemCatalog();
+        catalog.addItem("123", 11.50);
+        catalog.addItem("124", 25.30);
+        PointOfSale pointOfSale = new PointOfSale(catalog);
+
+        pointOfSale.onBarcode("123");
+
+        String shownText = pointOfSale.lastTextShown();
+        assertEquals("$ 11.50", shownText);
+    }
 }

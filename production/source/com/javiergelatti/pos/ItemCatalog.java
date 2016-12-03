@@ -1,17 +1,17 @@
 package com.javiergelatti.pos;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class ItemCatalog {
-    private String barcode;
-    private double price = -1;
+    private Map<String, Double> prices = new HashMap<>();
 
     public void addItem(String barcode, double price) {
-        this.barcode = barcode;
-        this.price = price;
+        prices.put(barcode, price);
     }
 
     public Optional<Double> getItemPriceFor(String barcode) {
-        return price == -1 ? Optional.empty() : Optional.of(price);
+        return Optional.ofNullable(prices.get(barcode));
     }
 }
