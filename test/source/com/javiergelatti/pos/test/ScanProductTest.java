@@ -1,5 +1,6 @@
 package com.javiergelatti.pos.test;
 
+import com.javiergelatti.pos.Display;
 import com.javiergelatti.pos.ItemCatalog;
 import com.javiergelatti.pos.PointOfSale;
 import org.junit.Test;
@@ -9,7 +10,8 @@ import static org.junit.Assert.assertEquals;
 public class ScanProductTest {
 
     private final ItemCatalog catalog = new ItemCatalog();
-    private final PointOfSale pointOfSale = new PointOfSale(catalog);
+    private final Display display = null;
+    private final PointOfSale pointOfSale = new PointOfSale(catalog, display);
 
     @Test
     public void itemNotFound() throws Exception {

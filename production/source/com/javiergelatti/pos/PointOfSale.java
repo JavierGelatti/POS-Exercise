@@ -7,7 +7,7 @@ public class PointOfSale {
     private ItemCatalog catalog;
     private String lastTextShown;
 
-    public PointOfSale(ItemCatalog catalog) {
+    public PointOfSale(ItemCatalog catalog, Display display) {
         this.catalog = catalog;
     }
 
