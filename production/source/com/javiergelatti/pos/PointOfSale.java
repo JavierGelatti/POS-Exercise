@@ -13,13 +13,24 @@ public class PointOfSale {
     }
 
     public void onBarcode(String barcode) {
-        if (barcode.trim().isEmpty()) {
-            display.showText("Scanning error: empty barcode");
-        } else {
-            display.showText(catalog.getItemPriceFor(barcode)
-                    .map(price -> String.format(Locale.US, "$ %.2f", price))
-                    .orElse("Item not found for code " + barcode));
-        }
+        if (isEmpty(barcode))
+            showEmptyBarcodeError();
+        else
+            showPriceFor(barcode);
+    }
+
+    private void showEmptyBarcodeError() {
+        display.showText("Scanning error: empty barcode");
+    }
+
+    private void showPriceFor(String barcode) {
+        display.showText(catalog.getItemPriceFor(barcode)
+                .map(price -> String.format(Locale.US, "$ %.2f", price))
+                .orElse("Item not found for code " + barcode));
+    }
+
+    private boolean isEmpty(String barcode) {
+        return barcode.trim().isEmpty();
     }
 
 }
