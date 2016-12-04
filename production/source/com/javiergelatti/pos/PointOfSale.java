@@ -13,7 +13,7 @@ public class PointOfSale {
     }
 
     public void onBarcode(String barcode) {
-        if ("".equals(barcode)) {
+        if (barcode.trim().isEmpty()) {
             display.showText("Scanning error: empty barcode");
         } else {
             display.showText(catalog.getItemPriceFor(barcode)

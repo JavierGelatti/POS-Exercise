@@ -42,8 +42,15 @@ public class SellOneItemTest implements Display {
     }
 
     @Test
-    public void invalidBarcode() throws Exception {
+    public void emtpyBarcode() throws Exception {
         pointOfSale.onBarcode("");
+
+        assertEquals("Scanning error: empty barcode", lastTextShown);
+    }
+
+    @Test
+    public void blankBarcode() throws Exception {
+        pointOfSale.onBarcode(" \n \t ");
 
         assertEquals("Scanning error: empty barcode", lastTextShown);
     }
