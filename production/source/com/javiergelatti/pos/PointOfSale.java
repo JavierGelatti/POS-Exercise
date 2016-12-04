@@ -13,9 +13,13 @@ public class PointOfSale {
     }
 
     public void onBarcode(String barcode) {
-        display.showText(catalog.getItemPriceFor(barcode)
-                .map(price -> String.format(Locale.US, "$ %.2f", price))
-                .orElse("Item not found for code " + barcode));
+        if ("".equals(barcode)) {
+            display.showText("Scanning error: empty barcode");
+        } else {
+            display.showText(catalog.getItemPriceFor(barcode)
+                    .map(price -> String.format(Locale.US, "$ %.2f", price))
+                    .orElse("Item not found for code " + barcode));
+        }
     }
 
 }

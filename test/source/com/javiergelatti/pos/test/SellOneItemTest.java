@@ -41,6 +41,13 @@ public class SellOneItemTest implements Display {
         assertEquals("$ 25.30", lastTextShown);
     }
 
+    @Test
+    public void invalidBarcode() throws Exception {
+        pointOfSale.onBarcode("");
+
+        assertEquals("Scanning error: empty barcode", lastTextShown);
+    }
+
     @Override
     public void showText(String text) {
         lastTextShown = text;
